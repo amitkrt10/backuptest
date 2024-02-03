@@ -30,4 +30,12 @@ data = json.load(f)
 st.write(data)
 f.close()
 
+if os.path.exists("credentials.json"):
+    os.remove("credentials.json")
+
+f = open("credentials.json")
+data = json.load(f)
+st.write(data)
+f.close()
+
 st.write("Hello-world!")
