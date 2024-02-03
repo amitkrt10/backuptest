@@ -81,7 +81,7 @@ def upload_files(curr_time,table,folder_id):
     # upload
     media = MediaFileUpload(f"backup_files/{curr_time}_{table}.csv", resumable=True)
     file = service.files().create(body=file_metadata, media_body=media, fields='id').execute()
-    print(f"File Uploaded : {table}")
+    st.write(f"File Uploaded : {table}")
 
 def db_connection():
     # DB Credentials
