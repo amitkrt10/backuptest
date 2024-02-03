@@ -28,8 +28,6 @@ SCOPES = ['https://www.googleapis.com/auth/drive.metadata.readonly',
 
 def get_gdrive_service():
     creds = None
-    with open('credentials.json', 'w') as fp:
-        json.dump(BACKUP_CRED, fp)
     # The file token.pickle stores the user's access and refresh tokens, and is
     # created automatically when the authorization flow completes for the first
     # time.
@@ -47,9 +45,6 @@ def get_gdrive_service():
         # Save the credentials for the next run
         with open('token.pickle', 'wb') as token:
             pickle.dump(creds, token)
-    # Delete credentials
-    if os.path.exists("credentials.json"):
-        os.remove("credentials.json")
     # return Google Drive API service
     return build('drive', 'v3', credentials=creds)
 
@@ -99,6 +94,8 @@ def db_connection():
     return conn
 
 if st.button("Backup Data",key="backupData"):
+    with open('credentials.json', 'w') as fp:
+        json.dump(BACKUP_CRED, fp)
     curr_time = time.strftime("%Y_%m_%d_%H_%M", time.localtime())
     folder_id = createFolder(f"{curr_time}_Backup")
     conn = db_connection()
