@@ -25,4 +25,10 @@ BACKUP_CRED= st.secrets["BACKUP_CRED"]
 with open('credentials.json', 'w') as fp:
     json.dump(BACKUP_CRED, fp)
 
+f = open("credentials.json")
+data = json.load(f)
+for i in data['emp_details']:
+    st.write(i)
+f.close()
+
 st.write("Hello-world!")
