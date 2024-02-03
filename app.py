@@ -23,6 +23,6 @@ PASSWORD= st.secrets["PASSWORD"]
 
 BACKUP_CRED= st.secrets["BACKUP_CRED"]
 with open('credentials.json', 'w') as fp:
-    json.dump(json_cred, fp)
+    json.dump(BACKUP_CRED, fp)
 
 st.write("Hello-world!")
