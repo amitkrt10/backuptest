@@ -14,4 +14,14 @@ from tabulate import tabulate
 import warnings
 warnings.filterwarnings("ignore")
 
+HOST= st.secrets["HOST"]
+DATABASE= st.secrets["DATABASE"]
+USER= st.secrets["USER"]
+PORT= st.secrets["PORT"]
+PASSWORD= st.secrets["PASSWORD"]
+
+BACKUP_CRED= st.secrets["BACKUP_CRED"]
+with open('credentials.json', 'w') as fp:
+    json.dump(json_cred, fp)
+
 st.write("Hello-world!")
