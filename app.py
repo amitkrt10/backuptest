@@ -27,8 +27,7 @@ with open('credentials.json', 'w') as fp:
 
 f = open("credentials.json")
 data = json.load(f)
-for i in data['emp_details']:
-    st.write(i)
+st.write(data)
 f.close()
 
 st.write("Hello-world!")
